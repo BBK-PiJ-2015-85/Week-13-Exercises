@@ -4,5 +4,8 @@ public class LibraryMock implements Library {
 		return 13;
 	}
 	
+	public String getName() {
+		return "Library Mock";
+	}
 	
 }

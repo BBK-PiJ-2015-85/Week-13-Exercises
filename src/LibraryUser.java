@@ -25,9 +25,9 @@ public interface LibraryUser {
 	int register(Library library);
 	
 	/**
-	* returns the library that the user is registered with
-	* @return the library the user is registered with
+	* returns the name of the library that the user is registered with
+	* @return the library name the user is registered with
 	*/
-	Library getLibrary();
+	String getLibrary();
 	
 }

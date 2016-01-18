@@ -32,6 +32,6 @@ public class LibraryUserImplTest {
 	@Test
 	public void testsGetLibraryName() {
 		user.register(mockLib);
-		assertEquals(mockLib, user.getLibrary());
+		assertEquals("Library Mock", user.getLibrary());
 	}
 }

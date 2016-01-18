@@ -21,7 +21,7 @@ public class LibraryUserImpl implements LibraryUser {
 		return userID;
 	}
 	
-	public Library getLibrary() {
-		return myLibrary;
+	public String getLibrary() {
+		return myLibrary.getName();
 	}
 }
