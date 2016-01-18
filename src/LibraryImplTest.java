@@ -54,18 +54,12 @@ public class LibraryImplTest {
 	
 	@Test
 	public void testsAddingEnoughPeopleSoArraySizeNeedsIncreasing() {
-		lib.getID("Dan");
-		lib.getID("Tan");
-		lib.getID("Nan");
-		lib.getID("Ran");
-		lib.getID("Can");
-		lib.getID("Wan");
-		lib.getID("Yan");
-		lib.getID("Pan");
-		lib.getID("Ian");
-		lib.getID("Man");
-		lib.getID("Stan");
-		assertEquals(10, lib.getID("Stan"));
+		String str = "";
+		for (int i = 0; i < 30; i++) {
+			str = "" + i;
+			lib.getID(str);
+		}
+		assertEquals(29, lib.getID("29"));
 	}
 	
 	@Test
