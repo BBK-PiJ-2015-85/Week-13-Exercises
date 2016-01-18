@@ -51,4 +51,28 @@ public class LibraryImplTest {
 		lib.getID("Dan");
 		assertEquals(0, lib.getID("Dan"));
 	}
+	
+	@Test
+	public void testsAddingEnoughPeopleSoArraySizeNeedsIncreasing() {
+		lib.getID("Dan");
+		lib.getID("Tan");
+		lib.getID("Nan");
+		lib.getID("Ran");
+		lib.getID("Can");
+		lib.getID("Wan");
+		lib.getID("Yan");
+		lib.getID("Pan");
+		lib.getID("Ian");
+		lib.getID("Man");
+		lib.getID("Stan");
+		assertEquals(10, lib.getID("Stan"));
+	}
+	
+	@Test
+	public void testsAddingFour() {
+		lib.getID("Dan");
+		lib.getID("Tan");
+		lib.getID("Nan");
+		assertEquals(3, lib.getID("Pete"));
+	}
 }

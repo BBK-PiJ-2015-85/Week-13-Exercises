@@ -3,26 +3,30 @@ public class LibraryImpl implements Library {
 	private int maxBooksPerUser;
 	private String[] libraryUsers;
 	private int totalUsers;
-	private int[] userIDs;
-	private static final int DEFAULT_SIZE = 20;
+	private static final int DEFAULT_SIZE = 10;
 	
 	public LibraryImpl(String name) {
 		libName = name;
 		libraryUsers = new String[DEFAULT_SIZE];
-		userIDs = new int[DEFAULT_SIZE];
 		totalUsers = 0;
 	}
 	
 	public int getID(String name) {
 		for (int i = 0; i < totalUsers; i++) {
 			if (libraryUsers[i].equals(name)) {
-				return userIDs[i];
+				return i;
 			}
 		}
-		userIDs[totalUsers] = totalUsers;
+		if (libraryUsers.length == totalUsers) {
+			String[] temp = new String[totalUsers * 2];
+			for (int i = 0; i < totalUsers; i++) {
+				temp[i] = libraryUsers[i];
+			}
+			libraryUsers = temp;
+		}
 		libraryUsers[totalUsers] = name;
 		totalUsers++;
-		return userIDs[totalUsers - 1];
+		return totalUsers - 1;
 	}
 	
 	public String getName() {
