@@ -16,4 +16,18 @@ public interface LibraryUser {
 	* @return the library user's ID
 	*/
 	int getID();
+	
+	/**
+	* registers the user with a library
+	* @param Library the library to register with
+	* @return the new library userID number
+	*/
+	int register(Library library);
+	
+	/**
+	* returns the library that the user is registered with
+	* @return the library the user is registered with
+	*/
+	Library getLibrary();
+	
 }

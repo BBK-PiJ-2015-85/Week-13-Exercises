@@ -5,10 +5,12 @@ import static org.junit.Assert.assertEquals;
 
 public class LibraryUserImplTest {
 	LibraryUser user;
+	Library mockLib;
 	
 	@Before
 	public void setUp() {
-		user = new LibraryUserImpl("Joe Bloggs");		
+		user = new LibraryUserImpl("Joe Bloggs");	
+		mockLib = new LibraryMock();
 	}
 	
 	@Test
@@ -18,7 +20,18 @@ public class LibraryUserImplTest {
 	
 	@Test
 	public void testsSetIDthenGetID() {
-		((LibraryUserImpl)user).setID(12345);
-		assertEquals(12345, user.getID());
+		user.register(mockLib);
+		assertEquals(13, user.getID());
+	}
+	
+	@Test
+	public void testsRegisterWithLibrary() {
+		assertEquals(13, user.register(mockLib));
+	}
+	
+	@Test
+	public void testsGetLibraryName() {
+		user.register(mockLib);
+		assertEquals(mockLib, user.getLibrary());
 	}
 }
