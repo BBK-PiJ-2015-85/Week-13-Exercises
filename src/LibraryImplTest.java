@@ -23,7 +23,32 @@ public class LibraryImplTest {
 	}
 	
 	@Test
-	public void testsGetUserID() {
-		assertEquals(13, lib.getID());
+	public void testsOnePErsonGetUserID() {
+		assertEquals(0, lib.getID("Joe Bloggs"));
+	}
+	
+	@Test
+	public void testTwoPeopleGetUSerID() {
+		lib.getID("Joe Bloggs");
+		lib.getID("Tim");
+		assertEquals(1, lib.getID("Tim"));
+	}
+	
+	@Test
+	public void testsAddThreePeopleGetThirdID() {
+		lib.getID("Joe Bloggs");
+		lib.getID("Tim");
+		lib.getID("Dan");
+		assertEquals(2, lib.getID("Dan"));
+	}
+	
+	@Test 
+	public void testsAddingSameNameMultipleTimes() {
+		lib.getID("Dan");
+		lib.getID("Dan");
+		lib.getID("Dan");
+		lib.getID("Dan");
+		lib.getID("Dan");
+		assertEquals(0, lib.getID("Dan"));
 	}
 }
