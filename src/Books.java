@@ -17,4 +17,15 @@ public interface Books {
 	*/
 	String getAuthor();
 	
+	/**
+	* tells whether the book is taken or not
+	* @return true if the book is taken, false if it is available
+	*/
+	boolean isTaken();
+	
+	/**
+	* sets whether the book is taken or not
+	* @param true if the book is taken, false if it is returned (i.e. available).
+	*/
+	void setTaken(boolean taken);
 }

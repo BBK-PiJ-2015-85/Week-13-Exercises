@@ -25,5 +25,25 @@ public interface Library {
 	* @return the maximum number of books a user can borrow at a time
 	*/
 	int getMaxBooksPerUser();
+
+	/**
+	* Adds a new book to the list of books in this library.
+	* @param the title and the author of the book.
+	*/
+	void addBook(String title, String author); 
+	
+	/**
+	* If the book is not taken, marks the book as taken and returns it. 
+	* If the book is taken or does not exist, null is returned.
+	* @param the title of the book.
+	* @return the title of the book if it is not taken or null if it is.
+	*/
+	String takeBook(String title);
+	
+	/**
+	* Marks the book as not taken.
+	* @param the book being returned.
+	*/
+	void returnBook(Book book);
 	
 }

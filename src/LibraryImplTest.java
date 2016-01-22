@@ -2,6 +2,7 @@ import org.junit.Test;
 import org.junit.Before;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class LibraryImplTest {
 	Library lib;
@@ -68,5 +69,34 @@ public class LibraryImplTest {
 		lib.getID("Tan");
 		lib.getID("Nan");
 		assertEquals(3, lib.getID("Pete"));
+	}
+	
+	@Test
+	public void testsAddOneNewBook() {
+		lib.addBook("PiJ", "Keith Mannock");
+		assertEquals("PiJ", lib.takeBook("PiJ"));
+	}
+	
+	@Test
+	public void testsAddTwoNewBooks() {
+		lib.addBook("PiJ", "Keith Mannock");
+		lib.addBook("Test", "James Pickles");
+		assertEquals("Test", lib.takeBook("Test"));
+	}
+	
+	@Test
+	public void testsAddsFourBooksThenTakesOne() {
+		lib.addBook("PiJ", "Keith Mannock");
+		lib.addBook("Test", "James Pickles");
+		lib.addBook("Test1", "Keith Mannock");
+		lib.addBook("Test2", "James Pickles");
+		assertEquals("Test1", lib.takeBook("Test1"));
+	}
+	
+	@Test
+	public void testsTakeABookAlreadyTaken() {
+		lib.addBook("PiJ", "Keith Mannock");
+		lib.takeBook("PiJ");
+		assertNull(lib.takeBook("PiJ"));
 	}
 }
