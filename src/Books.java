@@ -25,7 +25,7 @@ public interface Books {
 	
 	/**
 	* sets whether the book is taken or not
-	* @param true if the book is taken, false if it is returned (i.e. available).
+	* @param taken true if the book is taken, false if it is returned (i.e. available).
 	*/
 	void setTaken(boolean taken);
 }

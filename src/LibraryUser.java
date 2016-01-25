@@ -19,7 +19,7 @@ public interface LibraryUser {
 	
 	/**
 	* registers the user with a library
-	* @param Library the library to register with
+	* @param library the library to register with
 	* @return the new library userID number
 	*/
 	int register(Library library);
