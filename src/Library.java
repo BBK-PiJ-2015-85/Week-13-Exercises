@@ -36,14 +36,14 @@ public interface Library {
 	* If the book is not taken, marks the book as taken and returns it. 
 	* If the book is taken or does not exist, null is returned.
 	* @param the title of the book.
-	* @return the title of the book if it is not taken or null if it is.
+	* @return the book if it is not taken or null if it is.
 	*/
-	String takeBook(String title);
+	Books takeBook(String title);
 	
 	/**
 	* Marks the book as not taken.
 	* @param the book being returned.
 	*/
-	void returnBook(Book book);
+	void returnBook(Books book);
 	
 }
