@@ -6,6 +6,7 @@ public class LibraryImpl implements Library {
 	private static final int DEFAULT_SIZE = 10;
 	private Books[] libraryBooks;
 	private int totalBooks;
+	private int totalBooksBorrowed;
 	
 	public LibraryImpl(String name) {
 		libName = name;
@@ -13,6 +14,7 @@ public class LibraryImpl implements Library {
 		totalUsers = 0;
 		libraryBooks = new Books[DEFAULT_SIZE];
 		totalBooks = 0;
+		totalBooksBorrowed = 0;
 	}
 	
 	public int getID(String name) {
@@ -61,7 +63,9 @@ public class LibraryImpl implements Library {
 		for (int i = 0; i < totalBooks; i++) {
 			if (libraryBooks[i].getTitle().equals(title) && !libraryBooks[i].isTaken()) {
 				libraryBooks[i].setTaken(true);
+				totalBooksBorrowed++;
 				return libraryBooks[i];
+				
 			}
 		}
 		return null;
@@ -71,8 +75,21 @@ public class LibraryImpl implements Library {
 		for (int i = 0; i < totalBooks; i++) {
 			if (libraryBooks[i].getTitle().equals(book.getTitle()) && libraryBooks[i].isTaken()) {
 				libraryBooks[i].setTaken(false);
+				totalBooksBorrowed--;
 				return;
 			}
 		}
+	}
+	
+	public int getReaderCount() {
+		return totalUsers;
+	} 
+	
+	public int getBookCount() {
+		return totalBooks;
+	}
+	
+	public int getBookBorrowedCount() {
+		return totalBooksBorrowed;
 	}
 }

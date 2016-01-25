@@ -136,4 +136,76 @@ public class LibraryImplTest {
 		lib.returnBook(book2);
 		assertEquals("PiJ", lib.takeBook("PiJ").getTitle());
 	}
+	
+	@Test
+	public void testsGetReaderCountAtZero() {
+		assertEquals(0, lib.getReaderCount());
+	}
+	
+	@Test
+	public void testsAddTwoUsersGetUserCount() {
+		lib.getID("Joe Bloggs");
+		lib.getID("Tim");
+		assertEquals(2, lib.getReaderCount());
+	}
+	
+	@Test
+	public void testsAddFourUsersGetREaderCount() {
+		lib.getID("Joe Bloggs");
+		lib.getID("Tim");
+		lib.getID("Dan");
+		lib.getID("Jane");
+		assertEquals(4, lib.getReaderCount());
+	}
+	
+	@Test
+	public void testsGetBookCountAtZero() {
+		assertEquals(0, lib.getBookCount());
+	}
+	
+	@Test
+	public void testsAddTwoBooksGetCount() {
+		lib.addBook("PiJ", "Keith Mannock");
+		lib.addBook("PiJ", "Keith Mannock");
+		assertEquals(2, lib.getBookCount());
+	}
+	
+	@Test
+	public void testsAddFourBooksGetCount() {
+		lib.addBook("PiJ", "Keith Mannock");
+		lib.addBook("PiJ", "Keith Mannock");
+		lib.addBook("Test", "James Pickles");
+		lib.addBook("Test", "James Pickles");
+		assertEquals(4, lib.getBookCount());
+	}
+	
+	@Test
+	public void testsNoBorrowedBooksCount() {
+		assertEquals(0, lib.getBookBorrowedCount());
+	}
+	
+	@Test
+	public void testsTwoBooksBorrowedGetCount() {
+		lib.addBook("PiJ", "Keith Mannock");
+		lib.addBook("PiJ", "Keith Mannock");
+		lib.takeBook("PiJ");
+		lib.takeBook("PiJ");
+		assertEquals(2, lib.getBookBorrowedCount());
+	}
+	
+	@Test
+	public void testsFourBooksBorrowedGetCount() {
+		lib.addBook("PiJ", "Keith Mannock");
+		lib.addBook("PiJ", "Keith Mannock");
+		lib.addBook("PiJ", "Keith Mannock");
+		lib.addBook("PiJ", "Keith Mannock");
+		lib.addBook("PiJ", "Keith Mannock");
+		lib.takeBook("PiJ");
+		lib.takeBook("PiJ");
+		lib.takeBook("PiJ");
+		lib.takeBook("PiJ");
+		Books book1 = lib.takeBook("PiJ");
+		lib.returnBook(book1);
+		assertEquals(4, lib.getBookBorrowedCount());		
+	}
 }

@@ -46,4 +46,19 @@ public interface Library {
 	*/
 	void returnBook(Books book);
 	
+	/**
+	* @return the number of users registered in this library.
+	*/
+	int getReaderCount(); 
+	
+	/**
+	* @return the number of books in this library.
+	*/
+	int getBookCount();
+	
+	/**
+	* @return the number of borrowed books in this library.
+	*/
+	int getBookBorrowedCount();
+	
 }
