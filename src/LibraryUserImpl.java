@@ -17,7 +17,7 @@ public class LibraryUserImpl implements LibraryUser {
 	
 	public int register(Library library) {
 		myLibrary = library;
-		userID = library.getID();
+		userID = library.getID(name);
 		return userID;
 	}
 	
